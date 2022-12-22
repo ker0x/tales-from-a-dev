@@ -5,7 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+    <form method="get" class="my-5">
+        <div class="flex w-full">
+            <input
+                class="px-3 py-2 font-body font-light text-black placeholder-grey transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-teal-700"
+                type="text" name="search" placeholder="{{ 'search' }}" value="{{ app.request.query.get('search') }}">
+            <button class="inline-block bg-teal-700 px-7 py-2 text-center font-body text-xl font-semibold text-white transition-colors hover:bg-teal-800">
+                {{ 'btn.search'|trans({}, 'form') }}
+            </button>
+        </div>
+    </form>
 
     {% for post in posts %}
         {% include 'website/blog/_post_short.html.twig' %}

@@ -12,7 +12,7 @@ PHPUNIT  = $(PHP_CONT) bin/phpunit
 
 # Misc
 .DEFAULT_GOAL = help
-.PHONY        : help build up up-dev start down logs sh composer vendor sf cc db dbc dbd dbm dbl dbu dbv dbt cs static lint test
+.PHONY        : help build up up-dev start down logs sh composer vendor sf cc db dbc dbd dbm dbl dbu dbv dbt asset asset-watch asset-prod cs static lint test
 
 ##
 ## —— 🎵 🐳 The Symfony Docker Makefile 🐳 🎵 ——————————————————————————————————
@@ -110,6 +110,18 @@ dbt: ## Create test database
 	@$(SYMFONY) --env=test doctrine:database:drop --if-exists --force
 	@$(SYMFONY) --env=test doctrine:database:create --if-not-exists
 	@$(SYMFONY) --env=test doctrine:schema:update --force
+
+##
+## —— Assets 🎨 ————————————————————————————————————————————————————————————————
+##
+asset: ## Compile assets
+	yarn dev
+
+asset-watch: ## Watch and compile assets on change
+	yarn watch
+
+asset-prod: ## Compile assets for production
+	yarn build
 
 ##
 ## —— Linter 💫 ————————————————————————————————————————————————————————————————

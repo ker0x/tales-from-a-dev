@@ -1,8 +1,8 @@
 # app
 app:
-    title: 'Tales From a Dev'
+    title: 'Tales from a Dev'
     meta:
-        description: 'Romain Monteil, développeur Web full stack freelance'
+        description: 'Développeur web full stack en freelance basé à Limoges'
         
 # blog
 blog:
@@ -11,6 +11,10 @@ blog:
 # contact
 contact:
     title: 'Me contacter'
+    
+# home
+home:
+    title: 'Romain Monteil'
         
 # project
 project:
